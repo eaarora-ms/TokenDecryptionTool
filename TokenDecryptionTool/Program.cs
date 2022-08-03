@@ -69,10 +69,10 @@ namespace TokenDecryptionTool
                 throw ex;
             }
         }
-        public static X509SecurityKey GetTokenDecryptionKey()
+        public static RsaSecurityKey GetTokenDecryptionKey()
         {
             X509Certificate2 primaryCertificate = GetClientCertificate(certThumbprint);
-            X509SecurityKey PrimaryCertificateKey = new X509SecurityKey(primaryCertificate);
+            RsaSecurityKey PrimaryCertificateKey = new RsaSecurityKey(primaryCertificate.GetRSAPrivateKey().ExportParameters(true));
             return PrimaryCertificateKey;
         }
 
