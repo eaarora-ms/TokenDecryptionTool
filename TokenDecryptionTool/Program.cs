@@ -8,7 +8,7 @@ namespace TokenDecryptionTool
 {
     class Program
     {
-        private static readonly string certThumprint = "51cc840c0379ea91897791c53e49b794349ad8fe";
+        private static readonly string certThumbprint = "your_cert_thumbprint_here";
         static void Main(string[] args)
         {
             var token = "your_token_here";
@@ -71,7 +71,7 @@ namespace TokenDecryptionTool
         }
         public static X509SecurityKey GetTokenDecryptionKey()
         {
-            X509Certificate2 primaryCertificate = GetClientCertificate(certThumprint);
+            X509Certificate2 primaryCertificate = GetClientCertificate(certThumbprint);
             X509SecurityKey PrimaryCertificateKey = new X509SecurityKey(primaryCertificate);
             return PrimaryCertificateKey;
         }
